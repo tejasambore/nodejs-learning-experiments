@@ -1,10 +1,7 @@
-1744018913019 : / New Request Received
-1744018927283 : /about?userId=1&myname=piyush New Request Received
-1744018964269 : /contact New Request Received
-1744018967046 : / New Request Received
-1744019233246 : /about?myname=tejas New Request Received
-1744019278977 : /about?myname=tejas New Request Received
-1744019366342 : /about?myname=tejas&userId=1 New Request Received
-1744019401564 : /about?myname=tejas&userId=1 New Request Received
-1744019433298 : /about?myname=john&userId=1 New Request Received
-1744019623032 : /search?search_query=javascript+for+beginners New Request Received
+1744021246906 : GET / New Request Received
+1744021256759 : GET /about New Request Received
+1744021331513 : GET / New Request Received
+1744022313869 : GET /about New Request Received
+1744022320823 : GET /signup New Request Received
+1744191667957 : GET / New Request Received
+1744191678528 : GET /about New Request Received
