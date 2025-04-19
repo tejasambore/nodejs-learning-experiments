@@ -8,8 +8,22 @@ const PORT = 8000;
 //Middleware
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+    console.log("Hello from Middleware.. 1");
+    req.myUsername = "piyushgarg.dev"
+    // return res.json("Hello from Middleware.. 1");
+    next();
+})
+
+app.use((req, res, next) => {
+    console.log("Hello from Middleware.. 2", req.myUsername);
+    // return res.end("Hey");
+    next();
+})
+
 // Routes:
 app.get("/", (req, res) => {
+
     res.send("Server running at 8000");
 })
 
@@ -21,6 +35,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/api/users', (req, res) => {
+    console.log("I am in get route", req.myUsername)
     return res.json(users);
 })
 
