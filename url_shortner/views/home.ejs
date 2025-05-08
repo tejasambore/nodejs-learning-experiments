@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - URL Shortner</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Custom URL Shortner</h1>
+    <% if (locals.id) { %>
+            <p>URL Generated: http://localhost:8002/url/<%= id %></p>
+    <% } %>
+    <div>
+        <form method="POST" action="/url">
+            <label">Enter URL to Shorten</label>
+            <input 
+                type="text" 
+                name="url"
+                placeholder="https://example.com"
+            />
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+
+    <% if (locals.urls) { %>
+        <table border="1" cellpadding="2" cellspacing="0" style="margin-top: 20px; width: 40%; border-collapse: collapse;">
+            <caption style="font-size: 1.5em; margin: 10px;">URL List</caption>
+            <thead style="background-color: #f2f2f2;">
+                <tr>
+                    <th>Sr. No</th>
+                    <th>ShortId</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (locals.urls.length === 0) { %>
+                    <tr>
+                        <td colspan="4" style="text-align: center; font-weight: bold;">No URLs found</td>
+                    </tr>
+                <% } %>
+                <% locals.urls.forEach((url, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><a href="http://localhost:8002/url/<%= url.shortId %>">http://localhost:8002/url/<%= url.shortId %></a></td>
+                            <td><a href="<%= url.redirectedURL %>"><%= url.redirectedURL %></a></td>
+                            <td><%= url.visitHistory.length %></td>
+                        </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>
